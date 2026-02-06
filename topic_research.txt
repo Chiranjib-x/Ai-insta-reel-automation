@@ -1,1 +1,12 @@
 
+You are an AI content strategist.
+
+Task:
+- Suggest 5 trending Instagram reel topics related to Computer Science
+- Audience: CSE students in India
+- Focus: internships, placements, DSA, AI tools
+- Each topic should have high engagement potential
+
+Output format:
+1. Topic
+2. Why it will perform well
