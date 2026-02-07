@@ -1,25 +1,51 @@
-# Ai-insta-reel-automation
-AI system to automate Instagram CS content creation using avatars, voice and trend research
+# AI Instagram Reels Automation 
 
+An end-to-end AI automation system that:
+- Fetches trending Computer Science & Tech topics
+- Generates viral 60-second Instagram Reel scripts using LLMs
+- Uses human-in-the-loop approval
+- (Upcoming) Generates AI avatar videos with cloned voice
+- (Upcoming) Automatically posts to Instagram
 
-# AI Insta Reel Automation 🚀
+Built using **n8n + Python + Open-Source AI tools**.
 
-This project automates the creation of Instagram reels related to Computer Science trending topics.
+---
 
-## Features
-- AI-based topic recommendations
-- Script generation with approval system
-- AI avatar video creation
-- AI voice cloning
-- Reel optimization for reach and SEO
-- Human-in-the-loop approval before posting
+## Project Goal
 
-## Tech Stack
-- OpenAI (scripts)
-- ElevenLabs (voice)
-- HeyGen (avatar)
-- Make.com (automation)
-- Instagram Graph API
+To fully automate the creation and posting of Instagram Reels for the niche:
+**“Trending Topics in CSE & Technology”**
 
-## Status
-🟡 In Progress
+The system balances automation with quality using **two approval stages**.
+
+---
+
+## System Architecture (High-Level)
+
+Phase-based modular architecture:
+1. Content Engine (Trending Topics + Script Generation) ✅
+2. Clone Engine (Voice + Avatar) ⏳
+3. Editing Engine (Captions, B-roll, Music) ⏳
+4. Deployment Engine (Instagram Posting) ⏳
+
+---
+
+## Phase 1 – Content Engine (Completed)
+
+### Features
+- Fetches trending repositories from GitHub
+- Converts trends into viral Instagram Reel scripts using LLMs
+- Sends scripts to Telegram for approval
+- Stores approved scripts for downstream processing
+
+### Tech Used
+- n8n (workflow orchestration)
+- GitHub Search API
+- LLM (Gemini / OpenAI – pluggable)
+- Telegram Bot API
+- Python (optional preprocessing)
+
+---
+
+## Repository Structure
+
