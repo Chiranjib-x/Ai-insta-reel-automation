@@ -71,6 +71,12 @@ docs/ → Architecture & design notes
 
 ---
 
+## Data
+Contains sample data formats only.
+Real approved scripts are generated at runtime and excluded from Git.
+
+---
+
 ##  Author
 **Chiranjib Dash**  
 B.Tech CSE | Automation & AI Systems  
