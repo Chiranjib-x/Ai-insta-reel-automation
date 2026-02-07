@@ -1,0 +1,4 @@
+.env
+*.env
+/data/approved_script.json
+__pycache__/
