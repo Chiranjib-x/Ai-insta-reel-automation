@@ -7,10 +7,7 @@
       "name": "Manual Trigger",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
-      "position": [
-        -1728,
-        112
-      ]
+      "position": [-1728, 112]
     },
     {
       "parameters": {
@@ -21,27 +18,21 @@
       "name": "Fetch GitHub Trending",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
-      "position": [
-        -1504,
-        112
-      ]
+      "position": [-1504, 112]
     },
     {
       "parameters": {
-        "functionCode": "const repos = items[0].json.items;\n\nreturn repos.slice(0, 5).map(repo => {\n  return {\n    json: {\n      topic: `${repo.name} – ${repo.description || \"Trending GitHub project\"}`\n    }\n  };\n});\n"
+        "functionCode": "const repos = items[0].json.items;\n\nreturn repos.slice(0, 5).map(repo => {\n  return {\n    json: {\n      topic: `${repo.name} – ${repo.description || \"Trending GitHub project\"}`\n    }\n  };\n});"
       },
       "id": "62e3adb5-2361-4afb-bcbb-7304e4ae5fb3",
       "name": "Extract Topics",
       "type": "n8n-nodes-base.function",
       "typeVersion": 1,
-      "position": [
-        -1280,
-        112
-      ]
+      "position": [-1280, 112]
     },
     {
       "parameters": {
-        "url": "https://API_ENDPOINT_PLACEHOLDER",
+        "url": "LLM_API_ENDPOINT_HERE",
         "jsonParameters": true,
         "options": {}
       },
@@ -49,10 +40,7 @@
       "name": "Generate Reel Script (LLM)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
-      "position": [
-        -1056,
-        112
-      ]
+      "position": [-1056, 112]
     },
     {
       "parameters": {
@@ -62,26 +50,17 @@
       "name": "Format Telegram Message",
       "type": "n8n-nodes-base.function",
       "typeVersion": 1,
-      "position": [
-        -848,
-        112
-      ]
+      "position": [-848, 112]
     },
     {
       "parameters": {
-        "chatId": "CHAT_ID_PLACEHOLDER",
-        "text": "={{$json.text}}",
-        "additionalFields": {}
+        "text": "={{$json.text}}"
       },
       "id": "72f92561-2c96-41a8-8f10-f363c7a12c50",
       "name": "Send to Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1,
-      "position": [
-        -624,
-        112
-      ],
-      "webhookId": "52672867-6e88-4b93-80a0-b36338ea2228"
+      "position": [-624, 112]
     },
     {
       "parameters": {
@@ -93,11 +72,7 @@
       "name": "Telegram Approval Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [
-        -416,
-        112
-      ],
-      "webhookId": "092653a7-7302-45b2-98ac-86123fbf267b"
+      "position": [-416, 112]
     },
     {
       "parameters": {
@@ -115,10 +90,7 @@
       "name": "Approval Decision",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [
-        -224,
-        112
-      ]
+      "position": [-224, 112]
     },
     {
       "parameters": {
@@ -128,10 +100,7 @@
       "name": "Save Approved Script",
       "type": "n8n-nodes-base.writeBinaryFile",
       "typeVersion": 1,
-      "position": [
-        0,
-        0
-      ]
+      "position": [0, 0]
     },
     {
       "parameters": {},
@@ -139,109 +108,37 @@
       "name": "Rejected Script (Discard)",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
-      "position": [
-        0,
-        208
-      ]
+      "position": [0, 208]
     }
   ],
-  "pinData": {},
   "connections": {
     "Manual Trigger": {
-      "main": [
-        [
-          {
-            "node": "Fetch GitHub Trending",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Fetch GitHub Trending", "type": "main", "index": 0 }]]
     },
     "Fetch GitHub Trending": {
-      "main": [
-        [
-          {
-            "node": "Extract Topics",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Extract Topics", "type": "main", "index": 0 }]]
     },
     "Extract Topics": {
-      "main": [
-        [
-          {
-            "node": "Generate Reel Script (LLM)",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Generate Reel Script (LLM)", "type": "main", "index": 0 }]]
     },
     "Generate Reel Script (LLM)": {
-      "main": [
-        [
-          {
-            "node": "Format Telegram Message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Format Telegram Message", "type": "main", "index": 0 }]]
     },
     "Format Telegram Message": {
-      "main": [
-        [
-          {
-            "node": "Send to Telegram",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Send to Telegram", "type": "main", "index": 0 }]]
     },
     "Telegram Approval Webhook": {
-      "main": [
-        [
-          {
-            "node": "Approval Decision",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{ "node": "Approval Decision", "type": "main", "index": 0 }]]
     },
     "Approval Decision": {
       "main": [
-        [
-          {
-            "node": "Save Approved Script",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Rejected Script (Discard)",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        [{ "node": "Save Approved Script", "type": "main", "index": 0 }],
+        [{ "node": "Rejected Script (Discard)", "type": "main", "index": 0 }]
       ]
     }
   },
   "active": false,
   "settings": {
-    "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false
-  },
-  "versionId": "87cefc6d-5e69-4d99-a9e0-7f9f76b483be",
-  "meta": {
-    "instanceId": "e85afa3893d819f38ff91df15bf76793fcc1fa4097bb9c2741d7eca7686bcf04"
-  },
-  "id": "_G_prtj-5F_t6Tw35OwNj",
-  "tags": []
+    "executionOrder": "v1"
+  }
 }
