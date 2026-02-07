@@ -71,6 +71,16 @@ docs/ → Architecture & design notes
 
 ---
 
+## Scripts
+
+These scripts support the n8n workflows and handle logic that is
+better suited for Python than no-code tools.
+
+- topic_filter.py → ranks & cleans trending topics
+- script_generator.py → generates reel scripts using LLMs
+
+---
+
 ##  Author
 **Chiranjib Dash**  
 B.Tech CSE | Automation & AI Systems  
